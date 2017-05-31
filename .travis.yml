@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+- '4.2.6'
+branches:
+  only:
+  - master
+before_install:
+- openssl aes-256-cbc -K $encrypted_bba79517ddc5_key -iv $encrypted_bba79517ddc5_iv
+  -in travis_rsa.enc -out .travis/travis_rsa -d
+script:
+- echo Deploying!
+after_success:
+- eval "$(ssh-agent -s)"
+- chmod 600 .travis/travis_rsa
+- ssh-add .travis/travis_rsa
+deploy:
+  provider: script
+  script: .travis/deploy.sh
+  on:
+    branch: master
+env:
+  global:
+  - secure: 4DrbLjWhfTXUdKq4DK4EcUufWDjiqXt9FeHrRWZXjT6L+YZ6cmdH9cybF3DoH3NVh6dTOL0ABSOmm2//HcewvkU22kOwxkQBK87vc9i7uOTPKyU8aEP8yZpx6tcRkDQeSrE/RlD2uik5n59mKEPEykaT4xGII/+aKCLV8hurtzzJqeLunCJg5XLXLktpNeoJ78xu6vwqnMbO5RmhyofUWM272ygR403qO3mFL3DjIEx8osSUOdbXJIsgyDgVPKSe1o5YBKWD5I22ipTJAsEoORrat0SwZkN0Oenv+1Zqboq2EpV9z6ny7vaTptYqd4ricTAdzvZslDZIFIaeqQlb120TpVA8/WaF2AoDEei5kAvbKXaqnLcXGej70D2vR8UBwlMX/CduJ/Yo42LPDdNKfpI+4sOvKxoR/3YMr5hQhKTgMfmK3734aqZMgee54aL/IzsCxn06DQxJZShq9MpB80vTCCzqbsli3EpCiFoggiJbD7drLgUasCVk1dSPomEpLaFjZB7ZB6wlkLjKfGD1bB9ktjqn8yl2Sil419Lbz7ySqzoK/5RIQcdAN7czz+N9PZ7dVTYQvis0Ad1szOcm0EYcyY1dBauBXyUQfCtCXhoWEVhJaj+jvE/IdOQGCHIU7tf0nPdIJFSBDNwNhyei+OoBOrrmXJhg1EybmlMTJY4=
+  - secure: EX9qOTU8cQS3Um/vA+3OB3gU/ulXc3vyls/WgZVYax0mHLYs1WRlO9NWCP+aiISdotuqYjtq/3hVTTxS5sqeDTvVsUBydxqRvzF9F2x54hMib1h1HjUZRS8JmZjkoJ7gTrTlv/QoHklin8X9U/hWfK77MJw/uLgdXUzb0lPgIjRGEujE1LiODNNKwY7pBKRTjcZnovvjh0YepeS3XactdT++lGgtFQyVOHCxnVP4/B9vlZU74Bur5bkeng1JV0+l+fVr7Sn9ToZtffuUQ6bmcMwS9vMxMtIsYX/gxwlLxCG+GHtnxH0WfbBz9j/wuaMxyB0q/L3ZWttBWk0SDlf77mVoE9gxHq49KIHjDBKBUo3Ejg/2IyJcMEP89wa4cJSN1BtrYLNB/cRLNXuvqjifGRjBCnaAavG44J1BZQ0VzlA9UsT+80iixkDn8YsG4X9m/eERGG4UdhhzQobkLF+L8x8El4rSHonvdvP+LRF7292lFYCn4k0xYEgtQdH+aJ83OMcWjkT5JuJYPbMZdXbZM7MDNq9baSyS6LOcjQCb+a4xaM1XCAzQh3ABmUqC9mmaMy0XN01bALmTFMctv3OtsuF6MNFYcMYzX4O6KvMhL6FXFut48rSy2DC70xfQ49b2nQG4y1/PdTNICSbNxAnEOkVRTbSUP2yIYrCLW5QbQtc=
