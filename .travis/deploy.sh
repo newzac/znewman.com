@@ -8,3 +8,4 @@ scp -rv  -o StrictHostKeyChecking=no ./vendor $ZUSER@$ZHOST:~$ZUSER/znewman.com/
 scp -v   -o StrictHostKeyChecking=no ./gulpfile.js $ZUSER@$ZHOST:~$ZUSER/znewman.com/
 scp -v   -o StrictHostKeyChecking=no ./index.html $ZUSER@$ZHOST:~$ZUSER/znewman.com/
 scp -v   -o StrictHostKeyChecking=no ./package.json $ZUSER@$ZHOST:~$ZUSER/znewman.com/
+scp -v   -o StrictHostKeyChecking=no ./.htaccess $ZUSER@$ZHOST:~$ZUSER/znewman.com/

@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+# Redirect all insecure requests
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R=301,L]
+</IfModule>
