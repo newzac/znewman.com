@@ -3,7 +3,7 @@ node_js:
 - 4.2.6
 branches:
   only:
-  - master
+  - main
 before_install:
 - openssl aes-256-cbc -K $encrypted_bba79517ddc5_key -iv $encrypted_bba79517ddc5_iv
   -in travis_rsa.enc -out .travis/travis_rsa -d
