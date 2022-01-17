@@ -55,7 +55,7 @@
     // Navbar styling applied when the page is scrolled
     &.navbar-scrolled {
       box-shadow: $box-shadow;
-      background-color: #333333;
+      background-color: $grey;
       .navbar-brand {
         color: $white;
         &:hover {
