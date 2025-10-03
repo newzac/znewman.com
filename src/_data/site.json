@@ -1,0 +1,12 @@
+{
+  "title": "ZNEWMAN.COM",
+  "description": "Zachary Newman's personal website",
+  "url": "https://znewman.com",
+  "social": {
+    "twitter": "https://twitter.com/znewman",
+    "linkedin": "https://linkedin.com/in/zacharynewman",
+    "github": "https://github.com/newzac",
+    "email": "mailto:hello@znewman.com",
+    "mastodon": "https://hachyderm.io/@znewman"
+  }
+}
