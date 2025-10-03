@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" class="min-h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title }} | {{ site.title }}</title>
+  {% include 'meta.njk' %}
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" type="image/jpeg" href="/assets/images/header.jpg" />
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="me" href="{{ site.social.mastodon }}" />
+  <script>
+    // Dark mode toggle using localStorage
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const stored = localStorage.getItem('theme');
+    if(stored === 'dark' || (!stored && prefersDark)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</head>
+<body class="font-sans bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors">
+  {% include 'nav.njk' %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include 'footer.njk' %}
+  <script>
+    const tbtn = document.getElementById('theme-toggle');
+    if(tbtn){
+      tbtn.addEventListener('click', () => {
+        const root = document.documentElement;
+        const dark = root.classList.toggle('dark');
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+      });
+    }
+  </script>
+</body>
+</html>

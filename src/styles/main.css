@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component layer */
+@layer components {
+  .btn-primary { @apply inline-block px-6 py-3 rounded bg-brand text-white font-semibold shadow hover:bg-brand-dark transition; }
+  .section { @apply py-20; }
+  .divider { @apply w-24 h-1 bg-brand mx-auto my-8; }
+}

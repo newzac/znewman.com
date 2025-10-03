@@ -1,53 +1,28 @@
 {
-    "title": "Creative",
-    "name": "startbootstrap-creative",
-    "version": "5.1.8",
-    "scripts": {
-        "start": "node_modules/.bin/gulp watch"
-    },
-    "description": "Creative is a stylish one page HTML theme for Bootstrap.",
-    "keywords": [
-        "css",
-        "sass",
-        "html",
-        "responsive",
-        "theme",
-        "template"
-    ],
-    "homepage": "https://startbootstrap.com/template-overviews/creative",
-    "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-creative/issues",
-        "email": "feedback@startbootstrap.com"
-    },
+    "name": "znewman-site",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Personal website for Zachary Newman built with Eleventy and Tailwind CSS",
     "license": "MIT",
-    "author": "Start Bootstrap",
-    "contributors": [
-        "David Miller (http://davidmiller.io/)"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-creative.git"
+    "author": "Zachary Newman",
+    "engines": {
+        "node": ">=18"
     },
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "5.15.4",
-        "bootstrap": "4.3.1",
-        "jquery": "^3.6.0",
-        "jquery.easing": "^1.4.1",
-        "magnific-popup": "^1.1.0",
-        "popper": "^1.0.1",
-        "popper.js": "^1.14.7"
+    "scripts": {
+        "clean": "rm -rf dist",
+        "predev": "tailwindcss -c tailwind.config.cjs -i ./src/styles/main.css -o ./src/assets/css/site.css",
+        "dev": "concurrently \"npm:watch:eleventy\" \"npm:watch:css\"",
+        "watch:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --serve",
+        "watch:css": "tailwindcss -c tailwind.config.cjs -i ./src/styles/main.css -o ./src/assets/css/site.css --watch",
+        "build:css": "NODE_ENV=production tailwindcss -c tailwind.config.cjs -i ./src/styles/main.css -o ./src/assets/css/site.css --minify",
+        "build": "npm run clean && npm run build:css && ELEVENTY_ENV=prod npx @11ty/eleventy"
     },
     "devDependencies": {
-        "browser-sync": "^3.0.2",
-        "del": "7.1.0",
-        "gulp": "^4.0.2",
-        "gulp-autoprefixer": "9.0.0",
-        "gulp-clean-css": "4.3.0",
-        "gulp-header": "2.0.9",
-        "gulp-plumber": "^1.2.1",
-        "gulp-rename": "2.0.0",
-        "gulp-sass": "5.1.0",
-        "gulp-uglify": "3.0.2",
-        "merge-stream": "2.0.0"
+        "@11ty/eleventy": "^3.0.0",
+        "autoprefixer": "^10.4.20",
+        "concurrently": "^8.2.2",
+        "postcss": "^8.4.47",
+        "tailwindcss": "^3.4.14"
     }
 }
