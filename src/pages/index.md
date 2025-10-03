@@ -16,7 +16,7 @@ permalink: /index.html
 
 <section id="about" class="section bg-brand text-white">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <h2 class="text-3xl font-semibold">Web Operations & Platform Engineering Leadership are my specialties</h2>
+    <h2 class="text-3xl font-semibold">Web Operations & Platform Engineering Leadership Are My Specialties</h2>
     <div class="divider bg-white/60"></div>
     <p class="mt-4 text-brand-50">I'm a technical leader with over a decade of experience developing and operating
 applications and platforms both on-premises and in the cloud.</p>
